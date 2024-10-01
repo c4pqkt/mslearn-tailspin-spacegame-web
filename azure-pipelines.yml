@@ -60,6 +60,12 @@ steps:
     publishTestResults: true
     projects: '**/*.Tests.csproj'
 
+- task: DotNetCoreCLI@2
+  displayName: 'Run tests & collect code coverage'
+  inputs:
+    command: 'test'
+    arguments: '--collect "Code Coverage"'
+
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
   inputs:
